@@ -15,10 +15,11 @@ const __dirname= dirname(fileURLToPath(import.meta.url));
 import mongoose from 'mongoose';
 
 // Configuration module
-import { Secret } from "../config/config.js";   
+import { MongoURI, Secret } from "../config/config.js";   
 
 // Import Router
 import indexRouter from '../app/routes/index.route.server.js';
+import contactsRouter from './routes/contacts.route.server.js';
 
 // instantiate app-server
 const app = express();
@@ -52,6 +53,7 @@ app.use(session({
 // add middleware to connect application
 // use routes
 app.use('/', indexRouter);
+app.use('/', contactsRouter);
 
 
 // run app
