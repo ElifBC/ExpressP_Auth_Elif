@@ -11,6 +11,9 @@ import {fileURLToPath} from 'url';
 //const url = require("url").URL;
 const __dirname= dirname(fileURLToPath(import.meta.url));
 
+// Import Mongoose Module
+import mongoose from 'mongoose';
+
 // Configuration module
 import { Secret } from "../config/config.js";   
 
@@ -19,6 +22,14 @@ import indexRouter from '../app/routes/index.route.server.js';
 
 // instantiate app-server
 const app = express();
+
+// Complete the dB Conpfiguration
+mongoose.connect(MongoURI);
+const db = mongoose.connection;
+
+//Listen for connection success or error
+db.on('open', () => console.log("Connected to MongoDB"));
+db.on('error', () => console.log("Mongo connection error"));
 
 // setup ViewEngine EJS
 app.set('views', path.join(__dirname, '/views'));
