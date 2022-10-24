@@ -1,0 +1,34 @@
+<!--Elif Bilge Canatan- 301245216-COMP229-F2022-402 -->
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/"><i class="fa-sharp fa-solid fa-shield-cat fa-2xl"></i> Elif B. Canatan</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+
+          <li class="nav-item">
+            <a class="nav-link <%= (page == 'home') ? 'active' : ''; %>" aria-current="page" href="/"><i class="fa-solid fa-house"></i> Home</a>
+          </li>
+  
+          <li class="nav-item">
+            <a class="nav-link <%= (page == 'about') ? 'active' : ''; %>" aria-current="page" href="/about"><i class="fa-solid fa-circle-info fa-lg"></i> About</a>
+          </li>
+  
+          <li class="nav-item">
+            <a class="nav-link <%= (page == 'projects') ? 'active' : ''; %>" aria-current="page" href="/projects"><i class="fa-solid fa-list-check fa-lg"></i> Projects</a>
+          </li>
+  
+          <li class="nav-item">
+            <a class="nav-link <%= (page == 'services') ? 'active' : ''; %>" aria-current="page" href="/hobbies"><i class="fa-solid fa-person-snowboarding fa-lg"></i> Hobbies</a>
+          </li>
+  
+          <li class="nav-item">
+            <a class="nav-link <%= (page == 'contact') ? 'active' : ''; %>" aria-current="page" href="/contact"><i class="fa-regular fa-envelope fa-lg"></i> Contact</a>
+          </li> 
+        </ul>
+      </div>
+    </div>
+  </nav>
