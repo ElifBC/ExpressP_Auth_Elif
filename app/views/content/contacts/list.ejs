@@ -1,9 +1,6 @@
 <div class="container">
     <h1>Business Contacts List</h1>
-    <% if(displayName) { %>
-    <a href="/contacts-add" class="btn btn-primary" role="button">
-        <i class="fas fa-plus-circle"></i> Add a contact</a>
-        <% } %>
+  
     <div class="row">
         <div class="col">
     
@@ -11,14 +8,10 @@
                 <thead class="table-dark">
                     <tr>
                         <th scope="col" class="text-center">#</th>
-                        <th scope="col">Name</th>
-                        <th scope="col">Contact Number</th>
-                        <th scope="col">Email Adress</th>
-                      
-                        <% if(displayName) { %>
-                        <th></th>
-                        <th></th>
-                        <% } %>
+                        <th scope="col">name</th>
+                        <th scope="col">number</th>
+                        <th scope="col">email</th>
+                 
                     </tr>
                 </thead>
                 <tbody id="contactsList">
@@ -26,25 +19,11 @@
                     <% for(let count = 0; count < contacts.length; count++) { %>
                         <tr>
                             <th scope="row" class="text-center"><%= count + 1 %></th>
-                            <td><%= movies[count].name %></td>
-                            <td><%= movies[count].number %></td>
-                            <td><%= movies[count].email %></td>
+                            <td><%= contacts[count].name %></td>
+                            <td><%= contacts[count].number %></td>
+                            <td><%= contacts[count].email %></td>
                          
-                            <% if(displayName) { %>
-                            
-                            <td class="text-center col-1">
-                                <a href="/contacts-edit/<%= contacts[count]._id %>"
-                                    class="btn btn-primary btn-sm">
-                                    <i class="fas fa-pencil-alt"></i> Edit</a>
-                            </td>
-                            
-                            <td class="text-center col-1">
-                                <a href="/contacts-delete/<%= contacts[count]._id %>"
-                                    class="btn btn-danger btn-sm">
-                                    <i class="fas fa-trash-alt"></i> Delete</a>
-                            </td>
 
-                            <% } %> 
                         </tr>
                     <% } %>
                 </tbody>

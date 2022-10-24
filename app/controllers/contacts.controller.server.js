@@ -7,7 +7,7 @@ export function DisplayContactsList(req, res, next){
             res.end(err);
         }
 
-        res.render('index', { title: 'Contact List', page: 'contacts/list', contacts: contactsCollection, displayName: UserDisplayName(req) });
+        res.render('index', { title: 'Contact List', page: 'contacts/list', contacts: contactsCollection  }); // later add ---displayName: UserDisplayName(req)
 
     })
 }
