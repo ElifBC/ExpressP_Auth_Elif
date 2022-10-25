@@ -1,9 +1,13 @@
 <div class="container">
     <div class="row">
         <div class="offset-md-3 col-md-6">
-            <h1><%= title %></h1>
 
+             
+            <h1><%= title %></h1>
+               
+                                                                                         
             <form class="form" method="POST">
+            
                 <input type="hidden" name="id" value="<%= bcontact._id %>" >
                     <div class="form-group">
                     <label for="nameTextField">Name</label>
@@ -16,9 +20,9 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="authorTextField">Number</label>
+                    <label for="numberTextField">Number</label>
                     <input type="number" class="form-control"
-                    id="authorTextField"
+                    id="numberTextField"
                     placeholder="Enter contact's phone number"
                     name="number" 
                     value="<%= bcontact.number %>"
@@ -26,9 +30,9 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="publishedTextField">Email</label>
+                    <label for="emailTextField">Email</label>
                     <input type="text" class="form-control"
-                    id="publishedTextField"
+                    id="emailTextField"
                     placeholder="Enter the contact's email adress"
                     name="email" 
                     value="<%= bcontact.email %>"
@@ -38,15 +42,17 @@
                 </input>
                 </div>
 
-               
-                <button class="btn btn-primary" type="submit">
+                
+                <button class="btn btn-primary btn-lg" type="submit">
                     <i class="fas fa-edit"></i> Submit</button>
                 
-                    <a href="/contacts/list" class="btn btn-warning">
+                    <a href="/list" class="btn btn-warning btn-lg">
                         <i class="fas fa-undo"></i> Cancel</a>
-
+                       
             </form>
+       
         </div>
-
+    
     </div>
 </div>
+

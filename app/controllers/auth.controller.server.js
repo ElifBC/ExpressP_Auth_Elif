@@ -7,7 +7,7 @@ import passport from 'passport';
 import User from '../models/user.js';
 import { UserDisplayName } from '../utils/index.js';
 
-//Display function
+//Display functions
 export function DisplayLoginPage(req, res, next){
     if(!req.user){
         //User is not authenticated so render the login page 
@@ -17,8 +17,15 @@ export function DisplayLoginPage(req, res, next){
     return res.redirect('/list');
 }
 
+export function DisplayRegisterPage(req, res, next){
+    if(!req.user){
+        return res.render('index', {title: 'Register', page: 'register', messages: req.flash('registerMessage'), displayName: UserDisplayName(req) });
+    }
 
-// Processing Login Function
+    return res.redirect('/list');
+}
+
+// Processing Function
 export function ProcessLoginPage(req, res, next){
     passport.authenticate('local', function(err, user, info) {
         if(err){
@@ -44,6 +51,32 @@ export function ProcessLoginPage(req, res, next){
     })(req, res, next);
 }
 
+export function ProcessRegisterPage(req, res, next){
+    let newUser = new User({
+        username: req.body.username,
+        emailAddress: req.body.emailAddress,
+        displayName: req.body.firstName + " " + req.body.lastName
+    });
+
+    User.register(newUser, req.body.password, function(err){
+        if(err){
+            if(err.name == "UserExistsError"){
+                console.error('ERROR: User Already Exists!');
+                req.flash('registerMessage', 'Registration Error')
+            } else {
+                console.error(err.name);
+                req.flash('registerMessage', 'Server Error')
+            }
+            
+            return res.redirect('/register');
+        }
+
+        return passport.authenticate('local')(req, res, function()
+        {
+            return res.redirect('/');
+        });
+    });
+}
 
 export function ProcessLogoutPage(req, res, next){
     req.logOut(function(err){

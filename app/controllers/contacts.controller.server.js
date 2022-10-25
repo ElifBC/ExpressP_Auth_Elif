@@ -1,4 +1,5 @@
 import contactsModel from '../models/busicontacts.js';
+import {UserDisplayName } from "../utils/index.js";
 
 export function DisplayContactsList(req, res, next){
     contactsModel.find(function(err, contactsCollection) {
@@ -7,12 +8,12 @@ export function DisplayContactsList(req, res, next){
             res.end(err);
         }
 
-        res.render('index', { title: 'Contact List', page: 'contacts/list', contacts: contactsCollection  }); // later add ---displayName: UserDisplayName(req)  to all
+        res.render('index', { title: 'Contact List', page: 'contacts/list', contacts: contactsCollection, displayName: UserDisplayName(req)  }); 
 
     })
 }
 export function DisplayContactsAddPage(req, res, next){
-    res.render('index', { title: 'Add Contact', page: 'contacts/edit', bcontact: {} });
+    res.render('index', { title: 'Add Contact', page: 'contacts/edit', bcontact: {}, displayName: UserDisplayName(req) });
 }
  
 export function ProcessContactsAddPage(req, res, next){
@@ -42,7 +43,7 @@ export function DisplayContactsEditPage(req, res, next){
             res.ens(err);
         }
 
-        res.render('index', { title: 'Update Contacts', page: 'contacts/edit', bcontact: bcontact });
+        res.render('index', { title: 'Update Contacts', page: 'contacts/edit', bcontact: bcontact, displayName: UserDisplayName(req) });
     })
    
 }

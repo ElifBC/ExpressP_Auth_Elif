@@ -32,6 +32,20 @@
           <li class="nav-item">
             <a class="nav-link <%= (page == 'contacts') ? 'active' : ''; %>" aria-current="page" href="/list"><i class="fa-regular fa-address-book"></i> Business Contacts List</a>
           </li>
+
+          <% if(displayName) { %>
+
+            <li class="nav-item">
+              <a class="nav-link"  aria-current= "page" href="/logout"><i class="fa-solid fa-arrow-right-from-bracket"></i>Logout </a>
+            </li>
+       
+          <% } else { %>
+            
+            <li class="nav-item">
+              <a class="nav-link <%= (page == 'login') ? 'active' : ''; %>" aria-current="page" href="/login"><i class="fa-solid fa-arrow-right-to-bracket"></i> Login </a>
+            </li>
+
+        <% } %>
         </ul>
       </div>
     </div>
