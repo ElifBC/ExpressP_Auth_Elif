@@ -42,7 +42,7 @@ export function DisplayContactsEditPage(req, res, next){
             res.ens(err);
         }
 
-        res.render('index', { title: 'Edit Contacts', page: 'contacts/edit', bcontact: bcontact });
+        res.render('index', { title: 'Update Contacts', page: 'contacts/edit', bcontact: bcontact });
     })
    
 }

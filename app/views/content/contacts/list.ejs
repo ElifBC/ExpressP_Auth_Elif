@@ -1,7 +1,6 @@
 <div class="container">
     <h1>Business Contacts List</h1>
-    <a href="/contacts-add" class="btn btn-primary" role="button">
-        <i class="fas fa-plus-circle"></i> Add a contact</a>
+   
     <div class="row">
         <div class="col">
     
@@ -24,6 +23,17 @@
                             <td><%= contacts[count].number %></td>
                             <td><%= contacts[count].email %></td>
                          
+                            <td class="text-center col-1">
+                                <a href="/contacts-edit/<%= contacts[count]._id %>"
+                                    class="btn btn-primary btn-sm">
+                                    <i class="fas fa-pencil-alt"></i> Update</a>
+                            </td>
+                            
+                            <td class="text-center col-1">
+                                <a href="/contacts-delete/<%= contacts[count]._id %>"
+                                    class="btn btn-danger btn-sm">
+                                    <i class="fas fa-trash-alt"></i> Delete</a>
+                            </td>
 
                         </tr>
                     <% } %>
