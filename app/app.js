@@ -31,6 +31,7 @@ import { MongoURI, Secret } from "../config/config.js";
 // Import Router
 import indexRouter from '../app/routes/index.route.server.js';
 import contactsRouter from './routes/contacts.route.server.js';
+import authRouter from './routes/auth.route.server.js';
 
 // instantiate app-server
 const app = express();
@@ -78,6 +79,7 @@ passport.deserializeUser(User.deserializeUser());
 // use routes
 app.use('/', indexRouter);
 app.use('/', contactsRouter);
+app.use('/', authRouter);
 
 
 export default app;
